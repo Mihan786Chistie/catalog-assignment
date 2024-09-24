@@ -62,13 +62,15 @@ function processTestCase(testCase) {
     return lagrangeInterpolation(Object.fromEntries(Object.entries(points).slice(0, k)), k);
 }
 
-// Read the test case from a JSON file
-const testCase = JSON.parse(fs.readFileSync('test_case.json', 'utf8'));
 
-// Process the test case and print the result
+const testCase = JSON.parse(fs.readFileSync('test_case.json', 'utf8'));
+const testCase2 = JSON.parse(fs.readFileSync('test_case2.json', 'utf8'));
+
 try {
     const secret = processTestCase(testCase);
     console.log(secret);
+    const secret2 = processTestCase(testCase2);
+    console.log(secret2);
 } catch (e) {
     console.error(`Error: ${e.message}`);
 }
